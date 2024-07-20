@@ -1,5 +1,5 @@
 English Version
-
+![f1148d4aee92043fb7a0c.png](https://img.186404.xyz/file/5fbf538aeded6157ac7e8.png)
 AI-Generated P-Site Navigation Page
 
 This is an AI-generated imitation navigation page inspired by popular sites. It's built purely with HTML and can be deployed directly on GitHub Pages or on Cloudflare Pages through GitHub. The project is completely free and can be enhanced by obtaining a free domain from dynv6.

@@ -3,14 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <base href="https://p.186404.xyz/">
   <title>WebNav Hub</title>
+  
+  <!-- 添加资源预加载和预连接 -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+  
   <style>
     :root {
       --primary-color: #ff9000;
       --bg-color: #0d0d0d;
       --card-bg-color: #1a1a1a;
       --text-color: #fff;
+      --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
+      --card-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* 添加支持原生嵌套的现代浏览器样式 */
+    @supports (selector(:has(*))) {
+      .link-card:has(:hover) {
+        transform: translateY(-5px) scale(1.02);
+      }
+    }
+    
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
     }
     
     html {
@@ -55,6 +77,7 @@
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
+      gap: 0.6rem;
     }
     
     nav li {
@@ -100,19 +123,22 @@
     }
     
     .link-card {
+      text-decoration: none;
+      color: inherit;
       background-color: var(--card-bg-color);
       border-radius: 8px;
       padding: 1.2rem 0.8rem;
       text-align: center;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.3s var(--transition-timing);
       cursor: pointer;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 90px;
       position: relative;
       overflow: hidden;
+      aspect-ratio: 1;
+      will-change: transform, background-color;
     }
     
     .link-card::before {
@@ -189,13 +215,85 @@
       font-size: 0.75rem;
     }
     
-    @media (max-width: 1200px) {
-      main {
-        padding: 0.8rem;
+    @media (min-width: 1400px) {
+      .link-grid {
+        grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
       }
       
+      html {
+        font-size: 18px;
+      }
+    }
+    
+    @media (min-width: 1200px) and (max-width: 1399px) {
+      .link-grid {
+        grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+      }
+      
+      html {
+        font-size: 16px;
+      }
+    }
+    
+    @media (min-width: 992px) and (max-width: 1199px) {
       .link-grid {
         grid-template-columns: repeat(auto-fill, minmax(7.5rem, 1fr));
+      }
+      
+      html {
+        font-size: 15px;
+      }
+    }
+    
+    @media (min-width: 768px) and (max-width: 991px) {
+      .link-grid {
+        grid-template-columns: repeat(auto-fill, minmax(7rem, 1fr));
+      }
+      
+      html {
+        font-size: 14px;
+      }
+    }
+    
+    @media (min-width: 576px) and (max-width: 767px) {
+      .link-grid {
+        grid-template-columns: repeat(auto-fill, minmax(6.5rem, 1fr));
+      }
+      
+      html {
+        font-size: 13px;
+      }
+    }
+    
+    @media (max-width: 575px) {
+      .link-grid {
+        grid-template-columns: repeat(auto-fill, minmax(5.5rem, 1fr));
+      }
+      
+      html {
+        font-size: 12px;
+      }
+    }
+    
+    @media (hover: hover) {
+      .link-card:hover {
+        transform: translateY(-5px) scale(1.02);
+        box-shadow: var(--card-shadow);
+      }
+      
+      .link-card:hover::before {
+        opacity: 1;
+      }
+      
+      .link-card:hover i {
+        transform: scale(1.15) translateY(-2px);
+      }
+    }
+    
+    @supports (backdrop-filter: blur(10px)) {
+      nav {
+        backdrop-filter: blur(10px);
+        background-color: rgba(26, 26, 26, 0.8);
       }
     }
     
@@ -332,121 +430,102 @@
       }
     }
   </style>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer">
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.158.0/three.min.js" integrity="sha512-/WaZCC76Yn6MLEoK6b9np9yiLBet/RngBS33X1P0SHuag6j2DiA2JLpGUQXlVqsUzHVwEm3z8OAiKxUz6/Gp1w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- 优化 Font Awesome 加载 -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css" as="style">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" as="style">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/solid.min.css" as="style">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/solid.min.css">
+  
+  <!-- 移除不需要的 three.js -->
+  <!-- <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.158.0/three.min.js"></script> -->
+  
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll-polyfill/0.4.4/smoothscroll.min.js"></script>
   <script defer>
     document.addEventListener('DOMContentLoaded', () => {
       try {
+        // 初始化平滑滚动 polyfill
+        smoothscroll.polyfill();
+        
         const navLinks = document.querySelectorAll('nav a');
         const main = document.querySelector('main');
+        
+        // 优化滚动处理函数
+        const scrollToElement = (element, offset = 80) => {
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - offset;
 
-        // 错误处理函数
-        const handleError = (error) => {
-          console.error('Navigation error:', error);
-        };
-
-        // 平滑滚动函数
-        const smoothScroll = (target) => {
-          try {
-            const element = document.querySelector(target);
-            if (!element) throw new Error(`Target element ${target} not found`);
-            
-            const offset = 80; // 导航栏高度补偿
-            const elementPosition = element.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - offset;
-
+          if ('scrollBehavior' in document.documentElement.style) {
             window.scrollTo({
               top: offsetPosition,
               behavior: 'smooth'
             });
-          } catch (error) {
-            handleError(error);
-          }
-        };
+          } else {
+            // 回退方案：使用 requestAnimationFrame 实现平滑滚动
+            const duration = 1000;
+            const start = window.pageYOffset;
+            const startTime = 'now' in window.performance ? performance.now() : new Date().getTime();
 
-        // 更新导航状态
-        const updateNavState = () => {
-          try {
-            const sections = document.querySelectorAll('section');
-            const scrollPosition = window.scrollY + 100;
-
-            sections.forEach(section => {
-              const sectionTop = section.offsetTop;
-              const sectionHeight = section.clientHeight;
-              const sectionId = section.id;
-
-              if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                navLinks.forEach(link => {
-                  link.classList.remove('active');
-                  if (link.getAttribute('href') === `#${sectionId}`) {
-                    link.classList.add('active');
-                  }
-                });
+            const scroll = () => {
+              const now = 'now' in window.performance ? performance.now() : new Date().getTime();
+              const time = Math.min(1, ((now - startTime) / duration));
+              
+              window.scrollTo(0, start + (offsetPosition - start) * easeInOutQuad(time));
+              
+              if (time < 1) {
+                requestAnimationFrame(scroll);
               }
-            });
-          } catch (error) {
-            handleError(error);
+            };
+
+            requestAnimationFrame(scroll);
           }
         };
 
-        // 导航点击事件
+        // 缓动函数
+        const easeInOutQuad = t => t < .5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+
+        // 优化导航点击处理
         navLinks.forEach(link => {
           link.addEventListener('click', (e) => {
             try {
               e.preventDefault();
               const targetId = link.getAttribute('href');
+              const targetElement = document.querySelector(targetId);
               
-              // 更新 URL
-              history.pushState(null, '', targetId);
-              
-              // 平滑滚动到目标位置
-              smoothScroll(targetId);
-              
-              // 更新导航状态
-              navLinks.forEach(l => l.classList.remove('active'));
-              link.classList.add('active');
+              if(targetElement) {
+                scrollToElement(targetElement);
+                navLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+              }
             } catch (error) {
-              handleError(error);
+              console.error('Navigation error:', error);
             }
           });
         });
 
-        // 链接卡片点击处理
-        const linkCards = document.querySelectorAll('.link-card');
-        linkCards.forEach(card => {
-          card.addEventListener('click', () => {
-            try {
-              const href = card.getAttribute('href');
-              if (!href) throw new Error('No href attribute found');
-              window.open(href, '_blank', 'noopener noreferrer');
-            } catch (error) {
-              handleError(error);
+        // 使用 Intersection Observer API 优化滚动监听
+        const observerOptions = {
+          rootMargin: '-50% 0px -50% 0px',
+          threshold: [0, 0.5, 1]
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+              const id = entry.target.id;
+              navLinks.forEach(link => {
+                link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+              });
             }
           });
+        }, observerOptions);
 
-          // 增加键盘可访问性
-          card.setAttribute('tabindex', '0');
-          card.setAttribute('role', 'link');
-          card.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-              e.target.click();
-            }
-          });
+        // 观察所有section
+        document.querySelectorAll('section[id]').forEach(section => {
+          observer.observe(section);
         });
-
-        // 滚动监听
-        let scrollTimeout;
-        window.addEventListener('scroll', () => {
-          if (scrollTimeout) {
-            window.cancelAnimationFrame(scrollTimeout);
-          }
-          scrollTimeout = window.requestAnimationFrame(() => {
-            updateNavState();
-          });
-        });
-
-        // 初始化导航状态
-        updateNavState();
 
       } catch (error) {
         console.error('Initialization error:', error);
@@ -471,407 +550,403 @@
    <main>
     <h2 class="category-title" id="ai-search">Ai搜索</h2>
     <section class="link-grid">
-      <div class="link-card" href="https://www.google.com">
-        <i class="fab fa-google"></i>
+      <a class="link-card" href="https://www.google.com" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-google" aria-hidden="true"></i>
         <h3>Google</h3>
-      </div>
-      <div class="link-card" href="https://www.bing.com">
-        <i class="fab fa-microsoft"></i>
+      </a>
+      <a class="link-card" href="https://www.bing.com" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-microsoft" aria-hidden="true"></i>
         <h3>Bing</h3>
-      </div>
-      <div class="link-card" href="https://websim.ai/">
-        <i class="fas fa-search"></i>
+      </a>
+      <a class="link-card" href="https://websim.ai/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-search" aria-hidden="true"></i>
         <h3>websim</h3>
-      </div>
-      <div class="link-card" href="https://chatgpt.com/">
-        <i class="fab fa-google"></i>
+      </a>
+      <a class="link-card" href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-google" aria-hidden="true"></i>
         <h3>chatgpt</h3>
-      </div>
-      <div class="link-card" href="https://www.doubao.com/chat/">
-        <i class="fas fa-paw"></i>
+      </a>
+      <a class="link-card" href="https://www.doubao.com/chat/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-paw" aria-hidden="true"></i>
         <h3>傻豆包</h3>
-      </div>
-      <div class="link-card" href="https://yuanbao.tencent.com/">
-        <i class="fas fa-robot"></i>
+      </a>
+      <a class="link-card" href="https://yuanbao.tencent.com/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-robot" aria-hidden="true"></i>
         <h3>傻元宝</h3>
-      </div>
-      <div class="link-card" href="https://aistudio.google.com/">
-        <i class="fas fa-robot"></i>
+      </a>
+      <a class="link-card" href="https://aistudio.google.com/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-robot" aria-hidden="true"></i>
         <h3>google AIstudio</h3>
-      </div>
-      <div class="link-card" href="https://claude.ai/">
-        <i class="fas fa-robot"></i>
+      </a>
+      <a class="link-card" href="https://claude.ai/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-robot" aria-hidden="true"></i>
         <h3>claude</h3>
-      </div>
-      <div class="link-card" href="https://chandler.bet/">
-        <i class="fas fa-robot"></i>
+      </a>
+      <a class="link-card" href="https://chandler.bet/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-robot" aria-hidden="true"></i>
         <h3>ChandlerAi</h3>
-      </div>
-       <div class="link-card" href="https://mistral.ai/">
-        <i class="fas fa-brain"></i>
+      </a>
+       <a class="link-card" href="https://mistral.ai/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-brain" aria-hidden="true"></i>
         <h3>mistral</h3>
-      </div>
-      <div class="link-card" href="http://u.90tsg.com/">
-        <i class="fas fa-clinic-medical"></i>
+      </a>
+      <a class="link-card" href="http://u.90tsg.com/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-clinic-medical" aria-hidden="true"></i>
         <h3>循证医学UTD</h3>
-      </div>
-      <div class="link-card" href="https://www.medscape.com/">
-        <i class="fas fa-stethoscope"></i>
+      </a>
+      <a class="link-card" href="https://www.medscape.com/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-stethoscope" aria-hidden="true"></i>
         <h3>medscape</h3>
-      </div>
-       <div class="link-card" href="https://chat.oaichat.cc/">
-        <i class="fab fa-rocketchat"></i>
+      </a>
+       <a class="link-card" href="https://chat.oaichat.cc/" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-rocketchat" aria-hidden="true"></i>
         <h3>免费oaichat</h3>
-      </div>
-       <div class="link-card" href="https://app.leonardo.ai/">
-        <i class="far fa-images"></i>
+      </a>
+       <a class="link-card" href="https://app.leonardo.ai/" target="_blank" rel="noopener noreferrer">
+        <i class="far fa-images" aria-hidden="true"></i>
         <h3>leonardo.ai绘图</h3>
-      </div>
-       <div class="link-card" href="https://huggingface.co/">
-        <i class="fas fa-meh-rolling-eyes"></i>
+      </a>
+       <a class="link-card" href="https://huggingface.co/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-meh-rolling-eyes" aria-hidden="true"></i>
         <h3>huggingface</h3>
-      </div>
-      <div class="link-card" href="https://lmarena.ai/">
-        <i class="fas fa-robot"></i>
+      </a>
+      <a class="link-card" href="https://lmarena.ai/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-robot" aria-hidden="true"></i>
         <h3>lmarena</h3>
-      </div>
-      <div class="link-card" href="https://kelaode.ai/">
-        <i class="fas fa-robot"></i>
+      </a>
+      <a class="link-card" href="https://kelaode.ai/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-robot" aria-hidden="true"></i>
         <h3>kelaode</h3>
-      </div>
-      <div class="link-card" href="https://x.ai/">
-        <i class="fab fa-twitter-square"></i>
+      </a>
+      <a class="link-card" href="https://x.ai/" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-twitter-square" aria-hidden="true"></i>
         <h3>x.ai</h3>
-      </div>
-      <div class="link-card" href="https://ascvdpce.186404.xyz/">
-        <i class="fas fa-heartbeat"></i>
+      </a>
+      <a class="link-card" href="https://ascvdpce.186404.xyz/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-heartbeat" aria-hidden="true"></i>
         <h3>pce计算</h3>
-      </div>
-      <div class="link-card" href="https://bolt.new/">
-        <i class="fas fa-bolt"></i>
+      </a>
+      <a class="link-card" href="https://bolt.new/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-bolt" aria-hidden="true"></i>
         <h3>bolt.new</h3>
-      </div>
+      </a>
     </section>
 
     <h2 class="category-title" id="social">社交媒体</h2>
     <section class="link-grid">
-      <div class="link-card" href="https://www.facebook.com">
-        <i class="fab fa-facebook"></i>
+      <a class="link-card" href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-facebook" aria-hidden="true"></i>
         <h3>Facebook</h3>
-      </div>
-      <div class="link-card" href="https://twitter.com">
-        <i class="fab fa-twitter"></i>
+      </a>
+      <a class="link-card" href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-twitter" aria-hidden="true"></i>
         <h3>Twitter</h3>
-      </div>
-      <div class="link-card" href="https://www.instagram.com">
-        <i class="fab fa-instagram"></i>
+      </a>
+      <a class="link-card" href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-instagram" aria-hidden="true"></i>
         <h3>Instagram</h3>
-      </div>
-      <div class="link-card" href="https://www.linkedin.com">
-        <i class="fab fa-linkedin"></i>
+      </a>
+      <a class="link-card" href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-linkedin" aria-hidden="true"></i>
         <h3>LinkedIn</h3>
-      </div>
-      <div class="link-card" href="https://www.tiktok.com">
-        <i class="fab fa-tiktok"></i>
+      </a>
+      <a class="link-card" href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-tiktok" aria-hidden="true"></i>
         <h3>TikTok</h3>
-      </div>
-      <div class="link-card" href="https://www.reddit.com">
-        <i class="fab fa-reddit"></i>
+      </a>
+      <a class="link-card" href="https://www.reddit.com" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-reddit" aria-hidden="true"></i>
         <h3>Reddit</h3>
-      </div>
-      <div class="link-card" href="https://github.com/">
-        <i class="fab fa-github"></i>
+      </a>
+      <a class="link-card" href="https://github.com/" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-github" aria-hidden="true"></i>
         <h3>GitHub</h3>
-      </div>
+      </a>
     </section>
 
     <h2 class="category-title" id="tools">实用工具</h2>
     <section class="link-grid">
-      <div class="link-card" href="https://translate.google.com">
-        <i class="fas fa-language"></i>
+      <a class="link-card" href="https://translate.google.com" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-language" aria-hidden="true"></i>
         <h3>Google翻译</h3>
-      </div>
-      <div class="link-card" href="https://d.186404.xyz/">
-        <i class="fas fa-link"></i>
+      </a>
+      <a class="link-card" href="https://d.186404.xyz/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-link" aria-hidden="true"></i>
         <h3>短链</h3>
-      </div>
-      <div class="link-card" href="https://dynv6.com/">
-        <i class="fas fa-network-wired"></i>
+      </a>
+      <a class="link-card" href="https://dynv6.com/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-network-wired" aria-hidden="true"></i>
         <h3>dynv6</h3>
-      </div>
-      <div class="link-card" href="https://fast.com/">
-        <i class="fas fa-tachometer-alt"></i>
+      </a>
+      <a class="link-card" href="https://fast.com/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-tachometer-alt" aria-hidden="true"></i>
         <h3>网速测试</h3>
-      </div>
-      <div class="link-card" href="https://www.cloudns.net/">
-        <i class="fas fa-cloud"></i>
+      </a>
+      <a class="link-card" href="https://www.cloudns.net/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-cloud" aria-hidden="true"></i>
         <h3>Cloudns</h3>
-      </div>
-      <div class="link-card" href="https://www.cloudflare.com/zh-cn/">
-        <i class="fas fa-shield-alt"></i>
+      </a>
+      <a class="link-card" href="https://www.cloudflare.com/zh-cn/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-shield-alt" aria-hidden="true"></i>
         <h3>Cloudflare</h3>
-      </div>
-      <div class="link-card" href="https://ygpy.net/">
-        <i class="fas fa-user-friends"></i>
+      </a>
+      <a class="link-card" href="https://ygpy.net/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-user-friends" aria-hidden="true"></i>
         <h3>一个朋友</h3>
-      </div>
-      <div class="link-card" href="https://notebooklm.google/">
-        <i class="fas fa-book"></i>
+      </a>
+      <a class="link-card" href="https://notebooklm.google/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-book" aria-hidden="true"></i>
         <h3>谷歌笔记</h3>
-      </div>
-      <div class="link-card" href="https://email.ml/">
-        <i class="fas fa-envelope"></i>
+      </a>
+      <a class="link-card" href="https://email.ml/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-envelope" aria-hidden="true"></i>
         <h3>临时邮箱</h3>
-      </div>
-      <div class="link-card" href="https://www.ahhhhfs.com/">
-        <i class="fas fa-blog"></i>
+      </a>
+      <a class="link-card" href="https://www.ahhhhfs.com/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-blog" aria-hidden="true"></i>
         <h3>A姐</h3>
-      </div>
-      <div class="link-card" href="https://ip.sb/">
-        <i class="fas fa-map-marker-alt"></i>
+      </a>
+      <a class="link-card" href="https://ip.sb/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
         <h3>IP查询</h3>
-      </div>
-      <div class="link-card" href="https://dns.he.net/">
-        <i class="fas fa-network-wired"></i>
+      </a>
+      <a class="link-card" href="https://dns.he.net/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-network-wired" aria-hidden="true"></i>
         <h3>dns.he域名托管</h3>
-      </div>
-      <div class="link-card" href="https://www.site.ac/">
-        <i class="fas fa-exchange-alt"></i>
+      </a>
+      <a class="link-card" href="https://www.site.ac/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-exchange-alt" aria-hidden="true"></i>
         <h3>Site域名转发</h3>
-      </div>
-      <div class="link-card" href="https://zh.go-to-library.sk/">
-        <i class="fas fa-book-reader"></i>
+      </a>
+      <a class="link-card" href="https://zh.go-to-library.sk/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-book-reader" aria-hidden="true"></i>
         <h3>Z-Library</h3>
-      </div>
-      <div class="link-card" href="https://nic.us.kg/">
-        <i class="fas fa-globe"></i>
+      </a>
+      <a class="link-card" href="https://nic.us.kg/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-globe" aria-hidden="true"></i>
         <h3>us.kg域名</h3>
-      </div>
-      <div class="link-card" href="https://www.spaceship.com/zh/">
-        <i class="fas fa-space-shuttle"></i>
+      </a>
+      <a class="link-card" href="https://www.spaceship.com/zh/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-space-shuttle" aria-hidden="true"></i>
         <h3>Spaceship廉价域名</h3>
-      </div>
-      <div class="link-card" href="https://www.cursor.com/">
-        <i class="fas fa-i-cursor"></i>
+      </a>
+      <a class="link-card" href="https://www.cursor.com/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-i-cursor" aria-hidden="true"></i>
         <h3>cursor</h3>
-      </div>
-      <div class="link-card" href="https://fontawesome.com/">
-        <i class="fas fa-icons"></i>
+      </a>
+      <a class="link-card" href="https://fontawesome.com/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-icons" aria-hidden="true"></i>
         <h3>FontAwesome图标</h3>
-      </div>
-       <div class="link-card" href="https://scamalytics.com/">
-        <i class="fas fa-icons"></i>
+      </a>
+       <a class="link-card" href="https://scamalytics.com/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-icons" aria-hidden="true"></i>
         <h3>ip清洁度查询</h3>
-      </div>
-      <div class="link-card" href="https://test-ipv6.com/">
-        <i class="fas fa-ethernet"></i>
+      </a>
+      <a class="link-card" href="https://test-ipv6.com/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-ethernet" aria-hidden="true"></i>
         <h3>test-ipv6</h3>
-      </div>
-      <div class="link-card" href="https://html.zone/ip">
-        <i class="fab fa-sourcetree"></i>
+      </a>
+      <a class="link-card" href="https://html.zone/ip" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-sourcetree" aria-hidden="true"></i>
         <h3>zone/ip</h3>
-      </div>
-      <div class="link-card" href="https://www.lumiproxy.com/zh-hans/online-proxy/proxysite/">
-        <i class="fas fa-unlock"></i>
+      </a>
+      <a class="link-card" href="https://www.lumiproxy.com/zh-hans/online-proxy/proxysite/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-unlock" aria-hidden="true"></i>
         <h3>免费网络代理</h3>
-      </div>
-      <div class="link-card" href="https://ipcheck.ing/">
-        <i class="fas fa-map-marker-alt"></i>
+      </a>
+      <a class="link-card" href="https://ipcheck.ing/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
         <h3>ipcheck</h3>
-      </div>
-       <div class="link-card" href="https://console.cron-job.org/">
-        <i class="fas fa-ethernet"></i>
+      </a>
+       <a class="link-card" href="https://console.cron-job.org/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-ethernet" aria-hidden="true"></i>
         <h3>定时任务cron-job</h3>
-      </div>
-      <div class="link-card" href="https://uptimerobot.com/">
-        <i class="fas fa-map-marker-alt"></i>
+      </a>
+      <a class="link-card" href="https://uptimerobot.com/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
         <h3>uptimerobot</h3>
-      </div>
-       <div class="link-card" href="https://forwardemail.net/">
-        <i class="fas fa-mail-bulk"></i>
+      </a>
+       <a class="link-card" href="https://forwardemail.net/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-mail-bulk" aria-hidden="true"></i>
         <h3>forwardemail</h3>
-      </div>
-      <div class="link-card" href="https://improvmx.com/">
-        <i class="fas fa-mail-bulk"></i>
+      </a>
+      <a class="link-card" href="https://improvmx.com/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-mail-bulk" aria-hidden="true"></i>
         <h3>improvmx</h3>
-      </div>
-      <div class="link-card" href="https://gb.w404.nyc.mn/">
-        <i class="fab fa-github"></i>
+      </a>
+      <a class="link-card" href="https://gb.w404.nyc.mn/" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-github" aria-hidden="true"></i>
         <h3>github文件加速</h3>
-      </div>
-      <div class="link-card" href="https://hostry.com/">
-        <i class="fas fa-history"></i>
+      </a>
+      <a class="link-card" href="https://hostry.com/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-history" aria-hidden="true"></i>
         <h3>hostryDNS域名托管</h3>
-      </div>
-      <div class="link-card" href="https://www.sitelutions.com/">
-        <i class="fas fa-sitemap"></i>
+      </a>
+      <a class="link-card" href="https://www.sitelutions.com/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-sitemap" aria-hidden="true"></i>
         <h3>免费域名sitelutions</h3>
-      </div>
-       <div class="link-card" href="https://www.changeip.com/">
-        <i class="fas fa-satellite-dish"></i>
+      </a>
+       <a class="link-card" href="https://www.changeip.com/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-satellite-dish" aria-hidden="true"></i>
         <h3>免费域名changeip</h3>
-      </div>
-      <div class="link-card" href="https://dnsexit.com/">
-        <i class="fas fa-users"></i>
+      </a>
+      <a class="link-card" href="https://dnsexit.com/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-users" aria-hidden="true"></i>
         <h3>免费域名dnsexit</h3>
-      </div>
-       <div class="link-card" href="https://www.nslookup.io/">
-        <i class="fas fa-transgender"></i>
+      </a>
+       <a class="link-card" href="https://www.nslookup.io/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-transgender" aria-hidden="true"></i>
         <h3>DNS查找nslookup</h3>
-      </div>
-       </div>
-       <div class="link-card" href="https://ping0.cc/">
-        <i class="fas fa-fingerprint"></i>
+      </a>
+       </a>
+       <a class="link-card" href="https://ping0.cc/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-fingerprint" aria-hidden="true"></i>
         <h3>ping0</h3>
-      </div>
-      <div class="link-card" href="https://customer.l53.net/">
-        <i class="fas fa-fingerprint"></i>
+      </a>
+      <a class="link-card" href="https://customer.l53.net/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-fingerprint" aria-hidden="true"></i>
         <h3>L53免费域名</h3>
-      </div>
-      <div class="link-card" href="https://tools.pdf24.org/">
-        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="link-card" href="https://tools.pdf24.org/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-file-pdf" aria-hidden="true"></i>
         <h3>PDF在线工具</h3>
-      </div>
-      <div class="link-card" href="http://free-proxy.cz/en/">
-        <i class="fab fa-internet-explorer"></i>
+      </a>
+      <a class="link-card" href="http://free-proxy.cz/en/" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-internet-explorer" aria-hidden="true"></i>
         <h3>free-proxy</h3>
-      </div>
-      <div class="link-card" href="https://www.croxyproxy.rocks/_zh/">
-        <i class="fas fa-unlock"></i>
+      </a>
+      <a class="link-card" href="https://www.croxyproxy.rocks/_zh/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-unlock" aria-hidden="true"></i>
         <h3>在线代理croxyproxy</h3>
-      </div>
-      <div class="link-card" href="https://doocs.github.io/md/">
-        <i class="far fa-edit"></i>
+      </a>
+      <a class="link-card" href="https://doocs.github.io/md/" target="_blank" rel="noopener noreferrer">
+        <i class="far fa-edit" aria-hidden="true"></i>
         <h3>微信Markdown编辑器</h3>
-      </div>
-      <div class="link-card" href="https://www.proxysite.com/">
-        <i class="fas fa-unlock"></i>
+      </a>
+      <a class="link-card" href="https://www.proxysite.com/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-unlock" aria-hidden="true"></i>
         <h3>proxysite</h3>
-      </div>
-      <div class="link-card" href="https://www.serv00.com/">
-        <i class="fas fa-server"></i>
+      </a>
+      <a class="link-card" href="https://www.serv00.com/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-server" aria-hidden="true"></i>
         <h3>serv00</h3>
-      </div>
-      <div class="link-card" href="https://github.com/Molunerfinn/PicGo">
-        <i class="fas fa-cloud-upload-alt"></i>
+      </a>
+      <a class="link-card" href="https://github.com/Molunerfinn/PicGo" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-cloud-upload-alt" aria-hidden="true"></i>
         <h3>PicGo</h3>
-       </div>
-      <div class="link-card" href="https://smms.app/">
-        <i class="fas fa-image"></i>
+       </a>
+      <a class="link-card" href="https://smms.app/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-image" aria-hidden="true"></i>
         <h3>SM.MS</h3>
-      </div>
-      <div class="link-card" href="https://freeimage.host/">
-        <i class="fas fa-photo-video"></i>
+      </a>
+      <a class="link-card" href="https://freeimage.host/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-photo-video" aria-hidden="true"></i>
         <h3>FreeImageHost</h3>
-      </div>
-      <div class="link-card" href="https://cobalt.tools/">
-        <i class="fa-brands fa-youtube"></i>
-        <h3>cobalt</h3>
-      </div>
+      </a>
     </section>
 
     <h2 class="category-title" id="tech-news">科技资讯</h2>
     <section class="link-grid">
-      <div class="link-card" href="https://www.techcrunch.com">
-        <i class="fas fa-newspaper"></i>
+      <a class="link-card" href="https://www.techcrunch.com" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-newspaper" aria-hidden="true"></i>
         <h3>TechCrunch</h3>
-      </div>
-      <div class="link-card" href="https://www.wired.com">
-        <i class="fas fa-bolt"></i>
+      </a>
+      <a class="link-card" href="https://www.wired.com" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-bolt" aria-hidden="true"></i>
         <h3>Wired</h3>
-      </div>
-      <div class="link-card" href="https://www.theverge.com">
-        <i class="fas fa-laptop"></i>
+      </a>
+      <a class="link-card" href="https://www.theverge.com" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-laptop" aria-hidden="true"></i>
         <h3>The Verge</h3>
-      </div>
-      <div class="link-card" href="https://arstechnica.com">
-        <i class="fas fa-rocket"></i>
+      </a>
+      <a class="link-card" href="https://arstechnica.com" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-rocket" aria-hidden="true"></i>
         <h3>Ars Technica</h3>
-      </div>
-      <div class="link-card" href="https://www.engadget.com">
-        <i class="fas fa-mobile-alt"></i>
+      </a>
+      <a class="link-card" href="https://www.engadget.com" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-mobile-alt" aria-hidden="true"></i>
         <h3>Engadget</h3>
-      </div>
-      <div class="link-card" href="https://techradar.com">
-        <i class="fas fa-satellite"></i>
+      </a>
+      <a class="link-card" href="https://techradar.com" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-satellite" aria-hidden="true"></i>
         <h3>TechRadar</h3>
-      </div>
-      <div class="link-card" href="https://b.186404.xyz/">
-        <i class="fas fa-blog"></i>
+      </a>
+      <a class="link-card" href="https://b.186404.xyz/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-blog" aria-hidden="true"></i>
         <h3>科技博客</h3>
-      </div>
-      <div class="link-card" href="https://www.cnbeta.com.tw/">
-        <i class="fas fa-info-circle"></i>
+      </a>
+      <a class="link-card" href="https://www.cnbeta.com.tw/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-info-circle" aria-hidden="true"></i>
         <h3>cnbeta</h3>
-      </div>
+      </a>
     </section>
 
     <h2 class="category-title" id="cloud-storage">云存储</h2>
     <section class="link-grid">
-      <div class="link-card" href="https://www.dropbox.com">
-        <i class="fas fa-cloud"></i>
+      <a class="link-card" href="https://www.dropbox.com" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-cloud" aria-hidden="true"></i>
         <h3>Dropbox</h3>
-      </div>
-      <div class="link-card" href="https://drive.google.com">
-        <i class="fab fa-google-drive"></i>
+      </a>
+      <a class="link-card" href="https://drive.google.com" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-google-drive" aria-hidden="true"></i>
         <h3>Google Drive</h3>
-      </div>
-      <div class="link-card" href="https://onedrive.live.com">
-        <i class="fab fa-microsoft"></i>
+      </a>
+      <a class="link-card" href="https://onedrive.live.com" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-microsoft" aria-hidden="true"></i>
         <h3>OneDrive</h3>
-      </div>
-      <div class="link-card" href="https://www.box.com">
-        <i class="fas fa-box"></i>
+      </a>
+      <a class="link-card" href="https://www.box.com" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-box" aria-hidden="true"></i>
         <h3>Box</h3>
-      </div>
-      <div class="link-card" href="https://www.mediafire.com">
-        <i class="fas fa-file-alt"></i>
+      </a>
+      <a class="link-card" href="https://www.mediafire.com" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-file-alt" aria-hidden="true"></i>
         <h3>MediaFire</h3>
-      </div>
-      <div class="link-card" href="https://mega.nz">
-        <i class="fas fa-cloud-upload-alt"></i>
+      </a>
+      <a class="link-card" href="https://mega.nz" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-cloud-upload-alt" aria-hidden="true"></i>
         <h3>MEGA</h3>
-      </div>
-      <div class="link-card" href="https://mypikpak.com/">
-        <i class="fas fa-cloud"></i>
+      </a>
+      <a class="link-card" href="https://mypikpak.com/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-cloud" aria-hidden="true"></i>
         <h3>PikPak</h3>
-      </div>
+      </a>
     </section>
 
     <h2 class="category-title" id="email">电子邮箱</h2>
     <section class="link-grid">
-      <div class="link-card" href="https://mail.google.com">
-        <i class="fas fa-envelope"></i>
+      <a class="link-card" href="https://mail.google.com" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-envelope" aria-hidden="true"></i>
         <h3>Gmail</h3>
-      </div>
-      <div class="link-card" href="https://outlook.live.com">
-        <i class="fab fa-microsoft"></i>
+      </a>
+      <a class="link-card" href="https://outlook.live.com" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-microsoft" aria-hidden="true"></i>
         <h3>Outlook</h3>
-      </div>
-      <div class="link-card" href="https://cock.li/">
-        <i class="fas fa-envelope-open"></i>
+      </a>
+      <a class="link-card" href="https://cock.li/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-envelope-open" aria-hidden="true"></i>
         <h3>cock邮箱</h3>
-      </div>
-      <div class="link-card" href="https://disroot.org/">
-        <i class="fas fa-envelope-square"></i>
+      </a>
+      <a class="link-card" href="https://disroot.org/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-envelope-square" aria-hidden="true"></i>
         <h3>disroot邮箱</h3>
-      </div>
-      <div class="link-card" href="https://www.protonmail.com">
-        <i class="fas fa-shield-alt"></i>
+      </a>
+      <a class="link-card" href="https://www.protonmail.com" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-shield-alt" aria-hidden="true"></i>
         <h3>ProtonMail</h3>
-      </div>
-      <div class="link-card" href="https://mail.qq.com">
-        <i class="fab fa-qq"></i>
+      </a>
+      <a class="link-card" href="https://mail.qq.com" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-qq" aria-hidden="true"></i>
         <h3>QQ邮箱</h3>
-      </div>
-      <div class="link-card" href="https://librem.one/">
-        <i class="fas fa-at"></i>
+      </a>
+      <a class="link-card" href="https://librem.one/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-at" aria-hidden="true"></i>
         <h3>librem邮箱</h3>
-      </div>
-      <div class="link-card" href="https://www.linshigmail.com/">
-        <i class="fas fa-mail-bulk"></i>
+      </a>
+      <a class="link-card" href="https://www.linshigmail.com/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-mail-bulk" aria-hidden="true"></i>
         <h3>临时谷歌邮箱</h3>
-      </div>
+      </a>
     </section>
   </main>
   <footer>

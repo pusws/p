@@ -1,6 +1,6 @@
-# WebNav Hub - Modern Web Navigation Hub
+# WebNav Hub - PornNav
 
-# WebNav Hub - 现代网站导航中心
+# WebNav Hub - LinkHub PornNav导航
 
 [English](#english) | [中文](#中文)
 

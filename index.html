@@ -370,22 +370,22 @@
               var newUrl =
                 window。location。protocol +
                 "//" +
-                window.location.host +
-                window.location.pathname +
+                window。location。host +
+                window。location。pathname +
                 "#" +
                 targetId;
-              window.history.pushState({ path: newUrl }, "", newUrl);
+              window。history。pushState({ path: newUrl }， ""， newUrl);
             }
           });
         });
 
         function handleHashChange() {
-          var hash = window.location.hash;
+          var hash = window。location。hash;
           if (hash) {
-            var targetElement = document.getElementById(hash.substring(1));
+            var targetElement = document。getElementById(hash。substring(1));
             if (targetElement) {
-              targetElement.scrollIntoView({ behavior: "smooth" });
-              var activeLink = document.querySelector(
+              targetElement。scrollIntoView({ behavior: "smooth" });
+              var activeLink = document。querySelector(
                 'nav a[href="' + hash + '"]'
               );
               if (activeLink) {
@@ -849,11 +849,10 @@
           <i class="fa-brands fa-free-code-camp"></i>
           <h3>tinywow</h3>
         </div>
-
         <div class="link-card">
           <a href="https://paywallbuster.com/"></a>
           <i class="fa-solid fa-key"></i>
-          <h3>移除付费墙paywallbuster</h3>
+          <h3>付费墙</h3>
         </div>
         <div class="link-card">
           <a href="https://g.186404.xyz/wallHub/"></a>

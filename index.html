@@ -17,7 +17,7 @@
     }
 
     body {
-      font-family: Arial, sans-serif;
+      font-family: Arial， sans-serif;
       margin: 0;
       padding: 0;
       background-color: var(--bg-color);
@@ -67,10 +67,10 @@
       font-weight: bold;
       padding: 0.5rem 0.8rem;
       border-radius: 1.25rem;
-      transition: background-color 0.3s, color 0.3s;
+      transition: background-color 0.3s， color 0.3s;
     }
 
-    nav a:hover, nav a.active {
+    nav a:hover， nav a。active {
       background-color: var(--primary-color);
       color: #000;
     }
@@ -81,7 +81,7 @@
       padding: 1rem;
     }
 
-    .category-title {
+    。category-title {
       font-size: 1.5rem;
       font-weight: bold;
       margin: 2rem 0 1rem;
@@ -91,19 +91,19 @@
       text-transform: uppercase;
     }
 
-    .link-grid {
+    。link-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+      grid-template-columns: repeat(auto-fill， minmax(8rem， 1fr));
       gap: 1rem;
       margin-bottom: 2rem;
     }
 
-    .link-card {
+    。link-card {
       background-color: var(--card-bg-color);
       border-radius: 8px;
       padding: 1.2rem 0.8rem;
       text-align: center;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.3s cubic-bezier(0.4， 0， 0.2， 1);
       cursor: pointer;
       display: flex;
       flex-direction: column;
@@ -114,7 +114,7 @@
       overflow: hidden;
     }
 
-    .link-card a {
+    。link-card a {
         position: absolute;
         top: 0;
         left: 0;
@@ -126,30 +126,30 @@
     }
 
 
-    .link-card::before {
+    。link-card::before {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(135deg, transparent 0%, rgba(255, 144, 0, 0.1) 100%);
+      background: linear-gradient(135deg， transparent 0%， rgba(255， 144， 0， 0.1) 100%);
       opacity: 0;
       transition: opacity 0.3s ease;
       z-index: 1;
     }
 
-    .link-card:hover {
+    。link-card:hover {
       background-color: #2a2a2a;
       transform: translateY(-5px) scale(1.02);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 8px 20px rgba(0， 0， 0， 0.3);
     }
 
-    .link-card:hover::before {
+    。link-card:hover::before {
       opacity: 1;
     }
 
-    .link-card i {
+    。link-card i {
       font-size: 1.8rem;
       margin-bottom: 0.7rem;
       color: var(--primary-color);
@@ -158,12 +158,12 @@
       z-index: 11;     /* z-index 提高 */
     }
 
-    .link-card:hover i {
+    。link-card:hover i {
       transform: scale(1.15) translateY(-2px);
-      text-shadow: 0 0 15px rgba(255, 144, 0, 0.5);
+      text-shadow: 0 0 15px rgba(255， 144， 0， 0.5);
     }
 
-    .link-card h3 {
+    。link-card h3 {
       font-size: 0.9rem;
       margin: 0;
       color: var(--text-color);
@@ -207,8 +207,8 @@
         padding: 0.8rem;
       }
 
-      .link-grid {
-        grid-template-columns: repeat(auto-fill, minmax(7.5rem, 1fr));
+      。link-grid {
+        grid-template-columns: repeat(auto-fill， minmax(7.5rem， 1fr));
       }
     }
 
@@ -221,8 +221,8 @@
         font-size: 1.8rem;
       }
 
-      .link-grid {
-        grid-template-columns: repeat(auto-fill, minmax(6.5rem, 1fr));
+      。link-grid {
+        grid-template-columns: repeat(auto-fill， minmax(6.5rem， 1fr));
         gap: 0.8rem;
       }
 
@@ -235,22 +235,22 @@
         font-size: 0.9rem;
       }
 
-      .category-title {
+      。category-title {
         font-size: 1.3rem;
         margin: 1.5rem 0 0.8rem;
       }
 
-      .link-card {
+      。link-card {
         padding: 1rem 0.6rem;
         min-height: 80px;
       }
 
-      .link-card i {
+      。link-card i {
         font-size: 1.6rem;
         margin-bottom: 0.5rem;
       }
 
-      .link-card h3 {
+      。link-card h3 {
         font-size: 0.8rem;
         height: 2.4em;
       }
@@ -265,8 +265,8 @@
         padding: 0.6rem;
       }
 
-      .link-grid {
-        grid-template-columns: repeat(auto-fill, minmax(5.5rem, 1fr));
+      。link-grid {
+        grid-template-columns: repeat(auto-fill， minmax(5.5rem， 1fr));
         gap: 0.6rem;
       }
 
@@ -283,22 +283,22 @@
         font-size: 0.85rem;
       }
 
-      .category-title {
+      。category-title {
         font-size: 1.2rem;
         margin: 1.2rem 0 0.6rem;
       }
 
-      .link-card {
+      。link-card {
         padding: 0.8rem 0.5rem;
         min-height: 70px;
       }
 
-      .link-card i {
+      。link-card i {
         font-size: 1.4rem;
         margin-bottom: 0.4rem;
       }
 
-      .link-card h3 {
+      。link-card h3 {
         font-size: 0.75rem;
         padding: 0 0.2rem;
         height: 2.4em;
@@ -319,8 +319,8 @@
         font-size: 11px;
       }
 
-      .link-grid {
-        grid-template-columns: repeat(auto-fill, minmax(5rem, 1fr));
+      。link-grid {
+        grid-template-columns: repeat(auto-fill， minmax(5rem， 1fr));
         gap: 0.5rem;
       }
 
@@ -328,17 +328,17 @@
         font-size: 1.4rem;
       }
 
-      .link-card {
+      。link-card {
         padding: 0.7rem 0.4rem;
         min-height: 65px;
       }
 
-      .link-card i {
+      。link-card i {
         font-size: 1.3rem;
         margin-bottom: 0.3rem;
       }
 
-      .link-card h3 {
+      。link-card h3 {
         font-size: 0.7rem;
         padding: 0 0.15rem;
         height: 2.2em;
@@ -348,41 +348,41 @@
   </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var navLinks = document.querySelectorAll('nav a');
+    document。addEventListener('DOMContentLoaded'， function() {
+      var navLinks = document。querySelectorAll('nav a');
 
-      navLinks.forEach(function(link) {
-        link.addEventListener('click', function(e) {
-          e.preventDefault();
-          navLinks.forEach(l => l.classList.remove('active'));
-          this.classList.add('active');
-          var targetId = this.getAttribute('href').split('#')[1];
-          var targetElement = document.getElementById(targetId);
+      navLinks。forEach(function(link) {
+        link。addEventListener('click'， function(e) {
+          e。preventDefault();
+          navLinks。forEach(l => l。classList。remove('active'));
+          this。classList。add('active');
+          var targetId = this。getAttribute('href')。split('#')[1];
+          var targetElement = document。getElementById(targetId);
           if (targetElement) {
-            targetElement.scrollIntoView({ behavior: 'smooth' });
+            targetElement。scrollIntoView({ behavior: 'smooth' });
 
-            var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '#' + targetId;
-            window.history.pushState({path: newUrl}, '', newUrl);
+            var newUrl = window。location。protocol + "//" + window。location。host + window。location。pathname + '#' + targetId;
+            window。history。pushState({path: newUrl}， ''， newUrl);
           }
         });
       });
 
       function handleHashChange() {
-        var hash = window.location.hash;
+        var hash = window。location。hash;
         if (hash) {
-          var targetElement = document.getElementById(hash.substring(1));
+          var targetElement = document。getElementById(hash。substring(1));
           if (targetElement) {
-            targetElement.scrollIntoView({ behavior: 'smooth' });
-            var activeLink = document.querySelector('nav a[href="' + hash + '"]');
+            targetElement。scrollIntoView({ behavior: 'smooth' });
+            var activeLink = document。querySelector('nav a[href="' + hash + '"]');
             if (activeLink) {
-              navLinks.forEach(l => l.classList.remove('active'));
-              activeLink.classList.add('active');
+              navLinks。forEach(l => l。classList。remove('active'));
+              activeLink。classList。add('active');
             }
           }
         }
       }
 
-      window.addEventListener('hashchange', handleHashChange);
+      window。addEventListener('hashchange'， handleHashChange);
       handleHashChange(); // Call on initial load
     });
   </script>
@@ -862,6 +862,11 @@
         <a href="https://zenvideo.qq.com/"></a>
         <i class="fa-solid fa-video"></i>
         <h3>腾讯智影</h3>
+      </div>
+      <div class="link-card">
+        <a href="https://www.hidoha.net/"></a>
+        <i class="fa-brands fa-hire-a-helper"></i>
+        <h3>免费域名HiDNS</h3>
       </div>
       <div class="link-card">
         <a href="https://pixabay.com/"></a>

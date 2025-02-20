@@ -94,9 +94,10 @@
 
       .link-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr)); /* 使用 auto-fit 确保均匀分布 */
         gap: 1rem;
         margin-bottom: 2rem;
+        align-items: stretch; /* 确保卡片高度一致 */
       }
 
       .link-card {
@@ -110,7 +111,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        min-height: 90px;
+        min-height: 100px; /* 统一最小高度 */
         position: relative;
       }
 
@@ -154,6 +155,7 @@
         text-overflow: ellipsis;
         white-space: normal;
         padding: 0 0.3rem;
+        flex-grow: 1; /* 让标题填充剩余空间 */
       }
 
       footer {
@@ -175,7 +177,7 @@
         font-size: 0.75rem;
       }
 
-      /* 响应式设计改进 */
+      /* 响应式调整 */
       @media (max-width: 1200px) {
         main {
           padding: 1rem;
@@ -183,8 +185,28 @@
         }
 
         .link-grid {
-          grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+          grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
           gap: 1rem;
+        }
+      }
+
+      @media (max-width: 900px) {
+        .link-grid {
+          grid-template-columns: repeat(auto-fit, minmax(6.5rem, 1fr));
+        }
+
+        .link-card {
+          min-height: 95px;
+          padding: 1rem 0.7rem;
+        }
+
+        .link-card i {
+          font-size: 1.6rem;
+          margin-bottom: 0.6rem;
+        }
+
+        .link-card h3 {
+          font-size: 0.85rem;
         }
       }
 
@@ -198,7 +220,7 @@
         }
 
         .link-grid {
-          grid-template-columns: repeat(auto-fill, minmax(7rem, 1fr));
+          grid-template-columns: repeat(auto-fit, minmax(6.5rem, 1fr));
           gap: 0.8rem;
         }
 
@@ -217,18 +239,40 @@
         }
 
         .link-card {
+          min-height: 100px;
           padding: 1rem 0.6rem;
-          min-height: 100px; /* 增加高度以容纳更多内容 */
         }
 
         .link-card i {
-          font-size: 1.6rem;
+          font-size: 1.5rem;
           margin-bottom: 0.6rem;
         }
 
         .link-card h3 {
-          font-size: 0.85rem; /* 提高字体大小 */
-          min-height: 2.6em; /* 确保至少两行 */
+          font-size: 0.85rem;
+          min-height: 2.6em;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .link-grid {
+          grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
+          gap: 0.7rem;
+        }
+
+        .link-card {
+          min-height: 90px;
+          padding: 0.8rem 0.5rem;
+        }
+
+        .link-card i {
+          font-size: 1.4rem;
+          margin-bottom: 0.5rem;
+        }
+
+        .link-card h3 {
+          font-size: 0.8rem;
+          min-height: 2.4em;
         }
       }
 
@@ -242,8 +286,8 @@
         }
 
         .link-grid {
-          grid-template-columns: repeat(auto-fill, minmax(6.5rem, 1fr));
-          gap: 0.7rem;
+          grid-template-columns: repeat(auto-fit, minmax(5.5rem, 1fr));
+          gap: 0.6rem;
         }
 
         header h1 {
@@ -265,18 +309,18 @@
         }
 
         .link-card {
-          padding: 0.8rem 0.5rem;
-          min-height: 90px; /* 调整高度 */
+          min-height: 85px;
+          padding: 0.7rem 0.4rem;
         }
 
         .link-card i {
-          font-size: 1.5rem;
-          margin-bottom: 0.5rem;
+          font-size: 1.3rem;
+          margin-bottom: 0.4rem;
         }
 
         .link-card h3 {
-          font-size: 0.8rem; /* 提高可读性 */
-          min-height: 2.4em; /* 确保至少两行 */
+          font-size: 0.75rem;
+          min-height: 2.2em;
         }
       }
 
@@ -286,8 +330,8 @@
         }
 
         .link-grid {
-          grid-template-columns: repeat(auto-fill, minmax(6rem, 1fr));
-          gap: 0.6rem;
+          grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
+          gap: 0.5rem;
         }
 
         header h1 {
@@ -295,18 +339,18 @@
         }
 
         .link-card {
-          padding: 0.8rem 0.5rem;
-          min-height: 85px;
+          min-height: 80px;
+          padding: 0.6rem 0.3rem;
         }
 
         .link-card i {
-          font-size: 1.4rem;
-          margin-bottom: 0.4rem;
+          font-size: 1.2rem;
+          margin-bottom: 0.3rem;
         }
 
         .link-card h3 {
-          font-size: 0.75rem; /* 提高到更易读的大小 */
-          min-height: 2.2em; /* 确保至少两行 */
+          font-size: 0.7rem;
+          min-height: 2em;
         }
       }
     </style>
@@ -709,7 +753,8 @@
           <a href="https://www.site.ac/" target="_blank">
             <i class="fa-solid fa-right-left"></i>
             <h3>Site域名转发</h3>
-          </        </div>
+          </a>
+        </div>
         <div class="link-card">
           <a href="https://zh.go-to-library.sk/" target="_blank">
             <i class="fa-solid fa-book-reader"></i>
@@ -824,6 +869,7 @@
             <h3>免费域名dnsexit</h3>
           </a>
         </div>
+        <div class="link-card        </div>
         <div class="link-card">
           <a href="https://www.nslookup.io/" target="_blank">
             <i class="fa-solid fa-arrows-rotate"></i>

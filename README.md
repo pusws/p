@@ -1,222 +1,64 @@
-# WebNav Hub - PornNav
+# WebNav Hub
 
-# WebNav Hub - LinkHub PornNav导航
+WebNav Hub 是一个现代化的网址导航网站，汇集了各种类型的网站链接，包括 AI 搜索工具、社交媒体、实用工具、科技资讯、云存储和电子邮件服务等。
 
-[English](#english) | [中文](#中文)
+## 🌟 特性
 
-<div align="center">
-  <img src="https://cdn.jsdelivr.net/gh/bbylw/PicGo@master/20241220015300647.png" alt="WebNav Hub Preview" width="100%">
-</div>
+- **现代化设计**：采用玻璃拟态设计风格，具有流畅的动画效果和响应式布局
+- **分类导航**：将网站链接按类别组织，便于快速查找所需资源
+- **响应式布局**：适配各种设备屏幕尺寸，包括桌面端、平板和手机
+- **平滑滚动**：点击导航链接时平滑滚动到相应内容区域
+- **直观界面**：卡片式设计，每个链接都有图标和标题，易于识别
 
-<a name="english"></a>
+## 📁 项目结构
 
-## 🎨 Design Inspiration
-
-This project's UI design and color scheme is directly inspired by Pornhub's iconic black and orange theme. The choice was deliberate, leveraging the instantly recognizable color palette that has become a cultural phenomenon and internet meme, often referenced in various UI design discussions and parodies.
-
-- Primary Theme Color: `#ff9000` (Pornhub Orange)
-- Background: `#0d0d0d` (Dark Black)
-- Card Background: `#1a1a1a`
-- Text: `#ffffff` (White)
-
-## 🌟 Features
-
-### Modern Design
-
-- Responsive grid layout with beautiful cards
-- Smooth animations and transitions
-- Dark theme with modern color scheme
-- Optimized for both desktop and mobile devices
-
-### Technical Improvements
-
-- Container Queries for more precise responsive design
-- Modern CSS selectors (`:has()`) for enhanced interactions
-- Intersection Observer for optimized scroll performance
-- Secure external links with `rel="noopener noreferrer"`
-
-### Performance Optimizations
-
-- Resource preloading and preconnecting
-- Optimized Font Awesome loading
-- Reduced motion support for accessibility
-- Efficient CSS animations with hardware acceleration
-
-### Security Features
-
-- All external links protected with security attributes
-- Safe resource loading from CDN
-- Content Security Policy ready
-- Cross-origin resource protection
-
-## 🚀 Deployment Options
-
-### GitHub Pages Deployment
-
-1. Fork this repository
-2. Go to repository Settings > Pages
-3. Select main branch as source
-4. Your site will be available at `https://[username].github.io/[repo-name]`
-
-### Cloudflare Pages Deployment
-
-1. Connect your GitHub repository to Cloudflare Pages
-2. Set build settings:
-   - Build command: `N/A` (static site)
-   - Build output directory: `/`
-3. Deploy and access via Cloudflare's URL
-
-### Custom Domain Setup
-
-1. Register at [dynv6](https://dynv6.com)
-2. Add a new domain and configure DNS settings
-3. Point domain to your deployment URL
-4. Update DNS settings in your deployment platform
-
-## 🛠 Customization
-
-### Adding New Links
-
-Add new links in the appropriate section using this format:
-
-```html
-<a class="link-card" href="[URL]" target="_blank" rel="noopener noreferrer">
-    <i class="[ICON-CLASS]" aria-hidden="true"></i>
-    <h3>[TITLE]</h3>
-</a>
+```
+.
+├── index.html      # 主页面文件
+├── style.css       # 样式表文件
+├── main.js         # JavaScript 脚本文件
+└── README.md       # 项目说明文件
 ```
 
-### Modifying Categories
+## 🚀 快速开始
 
-Categories are defined by `<h2>` elements with the `category-title` class:
+1. 克隆或下载本项目到本地
+2. 在浏览器中打开 `index.html` 文件即可使用
 
-```html
-<h2 class="category-title" id="[CATEGORY-ID]">[CATEGORY-NAME]</h2>
-```
+## 🎨 设计特点
 
-## 📱 Browser Support
+- **玻璃拟态设计**：卡片采用半透明背景和毛玻璃效果
+- **深色主题**：深色背景配合橙色高亮，减少眼部疲劳
+- **悬停效果**：鼠标悬停时卡片有提升和发光效果
+- **渐变背景**：页面背景采用径向渐变，增强视觉层次感
 
-- Modern browsers with CSS Grid support
-- Fallbacks for older browsers
-- Progressive enhancement approach
+## 📱 响应式设计
 
-## 🔒 Security
+项目针对不同屏幕尺寸进行了优化：
+- 桌面端：多列网格布局
+- 平板端：适中的网格列数
+- 手机端：单列布局，便于触控操作
 
-All external links include security attributes:
+## 🛠 技术栈
 
-- `rel="noopener"`: Prevents `window.opener` exploitation
-- `rel="noreferrer"`: Prevents referrer information leakage
+- HTML5
+- CSS3（包括 Flexbox 和 Grid 布局）
+- JavaScript（ES6+）
+- Font Awesome 图标库
 
-## 📄 License
+## 📂 网站分类
 
-This project is open-source and available under the MIT License.
+1. **AI搜索**：各种人工智能搜索引擎和工具
+2. **社交媒体**：主流社交平台和相关工具
+3. **实用工具**：各种在线工具和服务
+4. **科技资讯**：科技新闻和资讯网站
+5. **云存储**：在线存储服务
+6. **电子邮箱**：邮件服务提供商
 
----
+## 🤝 贡献
 
-<a name="中文"></a>
-
-## 🎨 设计灵感
-
-本项目的界面设计和配色方案直接借鉴自 Pornhub 的标志性黑橙配色。这是一个刻意的设计选择，利用了这个已成为文化现象和网络模因的即时可识别配色方案，经常在各种 UI 设计讨论和模仿作品中被引用。
-
-- 主题主色：`#ff9000`（Pornhub 橙）
-- 背景色：`#0d0d0d`（深黑色）
-- 卡片背景：`#1a1a1a`
-- 文字颜色：`#ffffff`（白色）
-
-## 🌟 功能特点
-
-### 现代设计
-
-- 响应式网格布局，精美卡片设计
-- 流畅的动画和过渡效果
-- 现代深色主题配色
-- 同时优化桌面和移动设备体验
-
-### 技术改进
-
-- 使用 Container Queries 实现更精确的响应式设计
-- 采用现代 CSS 选择器（`:has()`）增强交互体验
-- 通过 Intersection Observer 优化滚动性能
-- 使用 `rel="noopener noreferrer"` 确保外部链接安全
-
-### 性能优化
-
-- 资源预加载和预连接
-- 优化 Font Awesome 加载
-- 支持减少动画以提升可访问性
-- 硬件加速的高效 CSS 动画
-
-### 安全特性
-
-- 所有外部链接都添加了安全属性
-- 安全的 CDN 资源加载
-- 支持内容安全策略
-- 跨源资源保护
-
-## 🚀 部署选项
-
-### GitHub Pages 部署
-
-1. Fork 本仓库
-2. 进入仓库设置 > Pages
-3. 选择 main 分支作为源
-4. 您的站点将在 `https://[用户名].github.io/[仓库名]` 可用
-
-### Cloudflare Pages 部署
-
-1. 将您的 GitHub 仓库连接到 Cloudflare Pages
-2. 设置构建选项：
-   - 构建命令：`N/A`（静态站点）
-   - 构建输出目录：`/`
-3. 部署并通过 Cloudflare 提供的 URL 访问
-
-### 自定义域名设置
-
-1. 在 [dynv6](https://dynv6.com) 注册
-2. 添加新域名并配置 DNS 设置
-3. 将域名指向您的部署 URL
-4. 在部署平台更新 DNS 设置
-
-## 🛠 自定义设置
-
-### 添加新链接
-
-在适当的区域添加新链接，使用以下格式：
-
-```html
-<a class="link-card" href="[URL]" target="_blank" rel="noopener noreferrer">
-    <i class="[图标类名]" aria-hidden="true"></i>
-    <h3>[标题]</h3>
-</a>
-```
-
-### 修改分类
-
-分类使用带有 `category-title` 类的 `<h2>` 元素定义：
-
-```html
-<h2 class="category-title" id="[分类ID]">[分类名称]</h2>
-```
-
-## 📱 浏览器支持
-
-- 支持具有 CSS Grid 功能的现代浏览器
-- 为旧版浏览器提供降级方案
-- 采用渐进增强方法
-
-## 🔒 安全性
-
-所有外部链接都包含安全属性：
-
-- `rel="noopener"`：防止 `window.opener` 漏洞利用
-- `rel="noreferrer"`：防止泄露引用来源信息
+欢迎提交 Issue 和 Pull Request 来帮助改进本项目。
 
 ## 📄 许可证
 
-本项目采用 MIT 许可证开源。
-
----
-
-Created with ❤️ by AI, enhanced by humans
-由 AI 创建，人类优化
+© 2025 WebNav Hub. 保留所有权利。

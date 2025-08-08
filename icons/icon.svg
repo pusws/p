@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
+  <!-- 背景渐变定义 -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff9000" />
+      <stop offset="100%" stop-color="#ff6a00" />
+    </linearGradient>
+  </defs>
+  
+  <!-- 背景圆形 -->
+  <circle cx="96" cy="96" r="88" fill="url(#bgGradient)"/>
+  
+  <!-- 罗盘外圈 -->
+  <circle cx="96" cy="96" r="60" fill="none" stroke="#0d0d0d" stroke-width="4"/>
+  
+  <!-- 罗盘内圈 -->
+  <circle cx="96" cy="96" r="45" fill="none" stroke="#0d0d0d" stroke-width="2"/>
+  
+  <!-- 指南针指针 -->
+  <g fill="#0d0d0d">
+    <!-- 北向指针 (红色) -->
+    <path d="M96 40L100 90L96 96L92 90L96 40Z" fill="#e74c3c"/>
+    <text x="96" y="30" font-family="Arial" font-size="12" fill="#0d0d0d" text-anchor="middle" font-weight="bold">N</text>
+    
+    <!-- 南向指针 -->
+    <path d="M96 152L92 102L96 96L100 102L96 152Z" fill="#0d0d0d"/>
+    <text x="96" y="170" font-family="Arial" font-size="12" fill="#0d0d0d" text-anchor="middle" font-weight="bold">S</text>
+    
+    <!-- 东向指针 -->
+    <path d="M152 96L102 100L96 96L102 92L152 96Z" fill="#0d0d0d"/>
+    <text x="162" y="100" font-family="Arial" font-size="12" fill="#0d0d0d" text-anchor="middle" font-weight="bold">E</text>
+    
+    <!-- 西向指针 -->
+    <path d="M40 96L90 92L96 96L90 100L40 96Z" fill="#0d0d0d"/>
+    <text x="30" y="100" font-family="Arial" font-size="12" fill="#0d0d0d" text-anchor="middle" font-weight="bold">W</text>
+  </g>
+  
+  <!-- 中心点 -->
+  <circle cx="96" cy="96" r="6" fill="#0d0d0d"/>
+  
+  <!-- 装饰性元素 -->
+  <g fill="none" stroke="#0d0d0d" stroke-width="1">
+    <circle cx="96" cy="96" r="75" stroke-dasharray="4,4"/>
+  </g>
+</svg>

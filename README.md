@@ -21,9 +21,8 @@ WebNav Hub 是一个现代化的网址导航网站，汇集了各种类型的网
 ├── sw.js           # Service Worker文件
 ├── data/
 │   └── navData.json # 导航数据文件（备份）
-├── icons/          # PWA图标文件夹（需要手动创建）
-│   ├── icon-192x192.png
-│   └── icon-512x512.png
+├── icons/          # PWA图标文件夹
+│   └── icon.svg     # SVG格式的网站图标
 └── README.md       # 项目说明文件
 ```
 
@@ -53,6 +52,7 @@ WebNav Hub 是一个现代化的网址导航网站，汇集了各种类型的网
 - JavaScript（ES6+）
 - Font Awesome 图标库
 - PWA（渐进式Web应用）支持
+- SVG图标
 
 ## 🔧 技术改进
 
@@ -66,6 +66,7 @@ WebNav Hub 是一个现代化的网址导航网站，汇集了各种类型的网
 2. **响应式优化**
    - 进一步优化移动端体验
    - 添加PWA支持，允许用户安装为应用
+   - 使用SVG图标，在所有分辨率下都保持清晰
 
 3. **可访问性**
    - 添加ARIA标签提高可访问性

@@ -9,14 +9,14 @@ document.addEventListener("DOMContentLoaded", function () {
           "title": "Ai搜索",
           "links": [
             {
-              "url": "https://www.google.com",
-              "icon": "fa-brands fa-google",
-              "title": "Google"
+              "url": "https://chatglm.cn/",
+              "icon": "fa-solid fa-comment-dots",
+              "title": "智谱清言"
             },
             {
-              "url": "https://unlimitedai.chat/",
-              "icon": "fa-solid fa-pepper-hot",
-              "title": "无限制AI"
+              "url": "https://mimo.xiaomi.com/",
+              "icon": "fa-solid fa-mobile-retro",
+              "title": "mimo小米AI"
             },
             {
               "url": "https://openrouter.ai/",
@@ -24,9 +24,9 @@ document.addEventListener("DOMContentLoaded", function () {
               "title": "openrouter"
             },
             {
-              "url": "https://websim.ai/",
+              "url": "https://www.qianwen.com/",
               "icon": "fa-solid fa-magnifying-glass",
-              "title": "websim"
+              "title": "千问国内版"
             },
             {
               "url": "https://chatgpt.com/",
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
             {
               "url": "https://www.doubao.com/chat/",
               "icon": "fa-solid fa-paw",
-              "title": "傻豆包"
+              "title": "豆包"
             },
             {
               "url": "https://space.coze.cn/",
@@ -59,9 +59,9 @@ document.addEventListener("DOMContentLoaded", function () {
               "title": "文心一言"
             },
             {
-              "url": "https://yuanbao.tencent.com/",
+              "url": "https://hunyuan.tencent.com/",
               "icon": "fa-solid fa-robot",
-              "title": "腾讯元宝"
+              "title": "腾讯混元"
             },
             {
               "url": "https://www.minimax.io/",
@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
               "title": "gemini"
             },
             {
-              "url": "https://labs.google/fx/zh",
+              "url": "https://labs.google/",
               "icon": "fa-brands fa-google-plus",
               "title": "labs.google"
             },
@@ -92,6 +92,11 @@ document.addEventListener("DOMContentLoaded", function () {
               "url": "https://jules.google.com/",
               "icon": "fa-brands fa-google-plus",
               "title": "jules.google"
+            },
+            {
+              "url": "https://stitch.withgoogle.com/",
+              "icon": "fa-brands fa-square-google-plus",
+              "title": "stitch.withgoogle"
             },
             {
               "url": "https://copilot.microsoft.com/",
@@ -104,14 +109,14 @@ document.addEventListener("DOMContentLoaded", function () {
               "title": "nvidia"
             },
             {
-              "url": "https://claude.ai/",
+              "url": "https://yuanbao.tencent.com/",
               "icon": "fa-solid fa-robot",
-              "title": "claude"
+              "title": "腾讯元宝"
             },
             {
-              "url": "https://chat.chutes.ai/",
+              "url": "https://www.firecrawl.dev/",
               "icon": "fa-solid fa-robot",
-              "title": "chutesai"
+              "title": "firecrawl"
             },
             {
               "url": "https://mistral.ai/",
@@ -124,24 +129,24 @@ document.addEventListener("DOMContentLoaded", function () {
               "title": "groq"
             },
             {
-              "url": "https://www.medscape.com/",
-              "icon": "fa-solid fa-stethoscope",
-              "title": "medscape"
+              "url": "https://www.skills.sh/",
+              "icon": "fa-solid fa-key",
+              "title": "skills"
             },
             {
-              "url": "https://heck.ai/",
+              "url": "https://ollama.com/",
               "icon": "fa-brands fa-rocketchat",
-              "title": "heck.ai"
+              "title": "ollama"
             },
             {
-              "url": "https://www.wenxiaobai.com/",
+              "url": "https://zenmux.ai/",
               "icon": "fa-solid fa-mask",
-              "title": "问小白"
+              "title": "zenmux"
             },
             {
-              "url": "https://app.leonardo.ai/",
-              "icon": "fa-regular fa-images",
-              "title": "leonardo.ai绘图"
+              "url": "https://chutes.ai/",
+              "icon": "fa-solid fa-chalkboard",
+              "title": "chutes.ai"
             },
             {
               "url": "https://huggingface.co/",
@@ -154,24 +159,29 @@ document.addEventListener("DOMContentLoaded", function () {
               "title": "lmarena"
             },
             {
-              "url": "https://anyrouter.top/",
+              "url": "https://is-agentic.com/",
               "icon": "fa-solid fa-robot",
-              "title": "anyrouter"
+              "title": "is-agentic"
             },
             {
-              "url": "https://x.ai/",
+              "url": "https://freeinference.org/",
+              "icon": "fa-brands fa-codepen",
+              "title": "freeinference"
+            },
+            {
+              "url": "https://grok.com/",
               "icon": "fa-brands fa-x-twitter",
-              "title": "x.ai"
+              "title": "grok"
             },
             {
-              "url": "https://ascvdpce.186404.xyz/",
-              "icon": "fa-solid fa-heart-pulse",
-              "title": "pce计算"
+              "url": "https://instabox.sh/",
+              "icon": "fa-solid fa-box",
+              "title": "instabox"
             },
             {
-              "url": "https://t3.chat/",
-              "icon": "fa-brands fa-rocketchat",
-              "title": "t3.chat"
+              "url": "https://agnes-ai.com/",
+              "icon": "fa-solid fa-code",
+              "title": "agnes-ai"
             },
             {
               "url": "https://v0.dev/",
@@ -179,14 +189,19 @@ document.addEventListener("DOMContentLoaded", function () {
               "title": "v0"
             },
             {
+              "url": "https://duck.ai/",
+              "icon": "fa-solid fa-dove",
+              "title": "Duck.ai"
+            },
+            {
               "url": "https://www.deepseek.com/",
               "icon": "fa-brands fa-rocketchat",
               "title": "deepseek"
             },
             {
-              "url": "https://ai.dangbei.com/",
+              "url": "https://ying.baichuan-ai.com/",
               "icon": "fa-brands fa-rocketchat",
-              "title": "当贝AI"
+              "title": "百小应医疗大模型"
             },
             {
               "url": "https://www.genspark.ai/",
@@ -199,14 +214,34 @@ document.addEventListener("DOMContentLoaded", function () {
               "title": "firebase.google"
             },
             {
-              "url": "https://kiro.dev/",
-              "icon": "fa-brands fa-rocketchat",
-              "title": "kiro.dev"
+              "url": "https://flow.google.com/",
+              "icon": "fa-brands fa-google-plus",
+              "title": "Google Flow"
             },
             {
-              "url": "https://sigmabrowser.com/chat",
-              "icon": "fa-brands fa-rocketchat",
-              "title": "sigmachat"
+              "url": "https://www.404s.design/",
+              "icon": "fa-solid fa-code",
+              "title": "404s.design"
+            },
+            {
+              "url": "https://www.streamlake.ai/",
+              "icon": "fa-solid fa-code",
+              "title": "streamlake.ai"
+            },
+            {
+              "url": "https://freebuff.com/",
+              "icon": "fa-solid fa-robot",
+              "title": "freebuff"
+            },
+            {
+              "url": "https://ampcode.com/",
+              "icon": "fa-solid fa-code",
+              "title": "ampcode"
+            },
+            {
+              "url": "https://deepai.org/",
+              "icon": "fa-solid fa-brain",
+              "title": "DeepAI"
             },
             {
               "url": "https://siliconflow.cn/",
@@ -219,30 +254,50 @@ document.addEventListener("DOMContentLoaded", function () {
               "title": "魔塔社区"
             },
             {
-              "url": "https://readdy.ai/",
+              "url": "https://maas.xfyun.cn/",
               "icon": "fa-solid fa-bolt",
-              "title": "readdy"
+              "title": "讯飞星辰MaaS"
+            },
+            {
+              "url": "https://youmind.com/",
+              "icon": "fa-solid fa-camera",
+              "title": "youmind"
+            },
+            {
+              "url": "https://www.lovart.ai/zh/home",
+              "icon": "fa-solid fa-file-image",
+              "title": "lovart"
             },
             {
               "url": "https://bolt.new/",
               "icon": "fa-solid fa-bolt",
               "title": "bolt.new"
+            },
+            {
+              "url": "https://artificialanalysis.ai/",
+              "icon": "fa-solid fa-chart-line",
+              "title": "Artificial Analysis"
+            },
+            {
+              "url": "https://www.perchai.app/",
+              "icon": "fa-solid fa-crow",
+              "title": "perchai.app"
             }
           ]
         },
         {
           "id": "social",
-          "title": "社交媒体",
+          "title": "托管社交",
           "links": [
             {
-              "url": "https://www.facebook.com",
-              "icon": "fa-brands fa-facebook",
-              "title": "Facebook"
+              "url": "https://wasmer.io/",
+              "icon": "fa-regular fa-cloud",
+              "title": "wasmer边缘计算"
             },
             {
-              "url": "https://x.com/",
-              "icon": "fa-brands fa-twitter",
-              "title": "Twitter"
+              "url": "https://f-droid.org/",
+              "icon": "fa-brands fa-android",
+              "title": "F-Droid"
             },
             {
               "url": "https://twitterxz.com/",
@@ -265,9 +320,9 @@ document.addEventListener("DOMContentLoaded", function () {
               "title": "deno"
             },
             {
-              "url": "https://railway.com/",
-              "icon": "fa-solid fa-archway",
-              "title": "railway"
+              "url": "https://surge.sh/",
+              "icon": "fa-brands fa-css",
+              "title": "surge"
             },
             {
               "url": "https://vercel.com/",
@@ -280,14 +335,19 @@ document.addEventListener("DOMContentLoaded", function () {
               "title": "netlify"
             },
             {
+              "url": "https://cloudzyro.com/",
+              "icon": "fa-solid fa-cloud",
+              "title": "cloudzyro"
+            },
+            {
               "url": "https://zh.savefrom.net/",
               "icon": "fa-solid fa-share-from-square",
               "title": "savefrom"
             },
             {
-              "url": "https://goingbus.com/",
-              "icon": "fa-brands fa-n",
-              "title": "爆米花视频"
+              "url": "https://www.apkmirror.com/",
+              "icon": "fa-brands fa-android",
+              "title": "apkmirror"
             },
             {
               "url": "https://www.reddit.com",
@@ -320,9 +380,29 @@ document.addEventListener("DOMContentLoaded", function () {
               "title": "suno"
             },
             {
-              "url": "https://mv.186404.xyz/",
+              "url": "https://appwrite.io/",
+              "icon": "fa-solid fa-server",
+              "title": "Appwrite"
+            },
+            {
+              "url": "https://neon.tech/",
+              "icon": "fa-solid fa-database",
+              "title": "Neon"
+            },
+            {
+              "url": "https://turso.tech/",
+              "icon": "fa-solid fa-database",
+              "title": "Turso"
+            },
+            {
+              "url": "https://movn.ndjp.net/",
               "icon": "fa-solid fa-tv",
               "title": "电影导航"
+            },
+            {
+              "url": "https://zhuiju.ndjp.net/",
+              "icon": "fa-solid fa-film",
+              "title": "追剧导航"
             }
           ]
         },
@@ -331,14 +411,14 @@ document.addEventListener("DOMContentLoaded", function () {
           "title": "实用工具",
           "links": [
             {
-              "url": "https://translate.google.com",
-              "icon": "fa-solid fa-language",
-              "title": "Google翻译"
+              "url": "https://mockaddress.com/",
+              "icon": "fa-solid fa-location-dot",
+              "title": "MockAddress地址生成器"
             },
             {
-              "url": "https://d.186404.xyz/",
+              "url": "https://privatebin.net/",
               "icon": "fa-solid fa-link",
-              "title": "短链"
+              "title": "privatebin在线粘贴板"
             },
             {
               "url": "https://dynv6.com/",
@@ -371,14 +451,14 @@ document.addEventListener("DOMContentLoaded", function () {
               "title": "谷歌笔记"
             },
             {
-              "url": "https://email.ml/",
+              "url": "https://unify.light-ai.top/",
               "icon": "fa-solid fa-envelope",
-              "title": "临时邮箱"
+              "title": "SenseNova Studio信息图"
             },
             {
-              "url": "https://www.ahhhhfs.com/",
-              "icon": "fa-solid fa-blog",
-              "title": "A姐"
+              "url": "https://vercel.com/drop",
+              "icon": "fa-solid fa-droplet",
+              "title": "vercel-drop"
             },
             {
               "url": "https://ip.sb/",
@@ -411,14 +491,24 @@ document.addEventListener("DOMContentLoaded", function () {
               "title": "Spaceship廉价域名"
             },
             {
-              "url": "https://www.cursor.com/",
-              "icon": "fa-solid fa-i-cursor",
-              "title": "cursor"
+              "url": "https://www.namecheap.com/",
+              "icon": "fa-solid fa-rocket",
+              "title": "namecheap廉价域名"
+            },
+            {
+              "url": "https://www.racknerd.com/",
+              "icon": "fa-solid fa-server",
+              "title": "racknerd"
             },
             {
               "url": "https://fontawesome.com/",
               "icon": "fa-solid fa-icons",
               "title": "FontAwesome图标"
+            },
+            {
+              "url": "https://worldvectorlogo.com/",
+              "icon": "fa-regular fa-font-awesome",
+              "title": "logosvg"
             },
             {
               "url": "https://scamalytics.com/",
@@ -466,9 +556,9 @@ document.addEventListener("DOMContentLoaded", function () {
               "title": "improvmx"
             },
             {
-              "url": "https://gb.w404.nyc.mn/",
-              "icon": "fa-brands fa-github",
-              "title": "github文件加速"
+              "url": "https://www.objectremover.com/",
+              "icon": "fa-solid fa-object-group",
+              "title": "objectremover去水印"
             },
             {
               "url": "https://hostry.com/",
@@ -491,7 +581,7 @@ document.addEventListener("DOMContentLoaded", function () {
               "title": "免费域名dnsexit"
             },
             {
-              "url": "https://www.gname.vip/",
+              "url": "https://www.gname.com/",
               "icon": "fa-solid fa-users",
               "title": "免费域名gname"
             },
@@ -516,9 +606,9 @@ document.addEventListener("DOMContentLoaded", function () {
               "title": "PDF在线工具"
             },
             {
-              "url": "http://free-proxy.cz/en/",
+              "url": "https://supabase.com/",
               "icon": "fa-brands fa-internet-explorer",
-              "title": "free-proxy"
+              "title": "supabase免费数据库"
             },
             {
               "url": "https://www.croxyproxy.rocks/_zh/",
@@ -541,9 +631,9 @@ document.addEventListener("DOMContentLoaded", function () {
               "title": "serv00"
             },
             {
-              "url": "https://www.hostuno.com/",
+              "url": "https://www.colocrossing.com/",
               "icon": "fa-solid fa-server",
-              "title": "hostuno"
+              "title": "colocrossing云服务vps"
             },
             {
               "url": "https://github.com/Molunerfinn/PicGo",
@@ -566,9 +656,9 @@ document.addEventListener("DOMContentLoaded", function () {
               "title": "cobalt"
             },
             {
-              "url": "https://codeium.com/",
+              "url": "https://isthisai.com/",
               "icon": "fa-solid fa-code",
-              "title": "Windsurf"
+              "title": "AI鉴定isthisai"
             },
             {
               "url": "https://tinywow.com/",
@@ -581,7 +671,7 @@ document.addEventListener("DOMContentLoaded", function () {
               "title": "付费墙"
             },
             {
-              "url": "https://g.186404.xyz/wallHub/",
+              "url": "https://paywallhub.ndjp.net/",
               "icon": "fa-solid fa-unlock",
               "title": "PaywallHub"
             },
@@ -601,9 +691,9 @@ document.addEventListener("DOMContentLoaded", function () {
               "title": "picwish"
             },
             {
-              "url": "https://zenvideo.qq.com/",
-              "icon": "fa-solid fa-video",
-              "title": "腾讯智影"
+              "url": "https://domain.stackryze.com/",
+              "icon": "fa-solid fa-landmark-dome",
+              "title": "免费域名Stackryze"
             },
             {
               "url": "https://www.hidoha.net/",
@@ -636,9 +726,9 @@ document.addEventListener("DOMContentLoaded", function () {
               "title": "noizai"
             },
             {
-              "url": "https://hailuoai.video/",
+              "url": "https://design.ndjp.net/",
               "icon": "fa-solid fa-file-audio",
-              "title": "海螺Ai"
+              "title": "Design Radar设计灵感导航"
             },
             {
               "url": "https://desec.io/",
@@ -651,14 +741,24 @@ document.addEventListener("DOMContentLoaded", function () {
               "title": "lovable网站生成"
             },
             {
-              "url": "https://www.netlib.re/",
+              "url": "https://ndjp.net/",
               "icon": "fa-solid fa-globe",
-              "title": "netlib免费域名"
+              "title": "ndjp免费域名"
+            },
+            {
+              "url": "https://www.dynu.com/",
+              "icon": "fa-solid fa-globe",
+              "title": "dynu免费域名"
             },
             {
               "url": "https://zone.id/",
               "icon": "fa-solid fa-id-card-clip",
               "title": "zone免费域名"
+            },
+            {
+              "url": "https://my.dnshe.com/",
+              "icon": "fa-solid fa-id-card-clip",
+              "title": "dnshe免费域名"
             },
             {
               "url": "https://x10hosting.com/",
@@ -676,9 +776,24 @@ document.addEventListener("DOMContentLoaded", function () {
               "title": "same复制网站"
             },
             {
-              "url": "https://claw.cloud/",
+              "url": "https://katabump.com/",
               "icon": "fa-solid fa-cloud",
-              "title": "claw容器"
+              "title": "KataBump免费域名"
+            },
+            {
+              "url": "https://zoneabc.net/",
+              "icon": "fa-solid fa-cloud",
+              "title": "免费域名zoneabc"
+            },
+            {
+              "url": "https://nic.gv.uy/",
+              "icon": "fa-solid fa-cloud",
+              "title": "免费域名gv.uy"
+            },
+            {
+              "url": "https://isroot.in/",
+              "icon": "fa-solid fa-cloud",
+              "title": "免费域名isroot"
             },
             {
               "url": "https://www.subeasy.ai/zh-CN",
@@ -697,13 +812,73 @@ document.addEventListener("DOMContentLoaded", function () {
             },
             {
               "url": "https://edgeone.ai/",
-              "icon": "fa-solid fa-dice-one",
-              "title": "腾讯edgeone"
+              "icon": "fa-brands fa-edge",
+              "title": "edgeone"
+            },
+            {
+              "url": "https://cyberpanel.net/",
+              "icon": "fa-solid fa-graduation-cap",
+              "title": "cyberpanel免费VPN"
             },
             {
               "url": "https://www.stormkit.io/",
               "icon": "fa-solid fa-cloud",
               "title": "Stormkit"
+            },
+            {
+              "url": "https://1984.hosting/",
+              "icon": "fa-solid fa-network-wired",
+              "title": "1984免费DNS托管"
+            },
+            {
+              "url": "https://dash.int.yt/",
+              "icon": "fa-solid fa-globe",
+              "title": "int.yt免费域名"
+            },
+            {
+              "url": "https://nssnap.com/",
+              "icon": "fa-solid fa-globe",
+              "title": "nssnap免费域名"
+            },
+            {
+              "url": "https://devs.surf/",
+              "icon": "fa-solid fa-water",
+              "title": "devs.surf 免费域名"
+            },
+            {
+              "url": "https://devs.li/",
+              "icon": "fa-solid fa-code",
+              "title": "devs.li 免费域名"
+            },
+            {
+              "url": "https://ipv64.net/",
+              "icon": "fa-solid fa-server",
+              "title": "ipv64"
+            },
+            {
+              "url": "https://nic.fj.kg/",
+              "icon": "fa-solid fa-globe",
+              "title": "Zerexa Domains 免费域名"
+            },
+            {
+              "url": "https://pinme.eth.limo/",
+              "icon": "fa-solid fa-thumbtack",
+              "title": "PinMe"
+            },
+            {
+              "url": "https://sms24.me/",
+              "icon": "fa-solid fa-comment-sms",
+              "title": "sms24免费接码"
+            },
+            {
+              "url": "https://openverse.org/",
+              "icon": "fa-brands fa-creative-commons",
+              "title": "Openverse"
+            },
+            {
+              "url": "https://hackerbooks.qiaomu.ai/",
+              "icon": "fa-solid fa-book-bookmark",
+              "title": "黑客书架"
             }
           ]
         },
@@ -747,9 +922,9 @@ document.addEventListener("DOMContentLoaded", function () {
               "title": "TechRadar"
             },
             {
-              "url": "https://b.186404.xyz/",
-              "icon": "fa-solid fa-blog",
-              "title": "科技博客"
+              "url": "https://www.opensourceprojects.dev/",
+              "icon": "fa-regular fa-folder-open",
+              "title": "精彩的开源项目"
             },
             {
               "url": "https://www.cnbeta.com.tw/",
@@ -804,9 +979,9 @@ document.addEventListener("DOMContentLoaded", function () {
           "title": "电子邮箱",
           "links": [
             {
-              "url": "https://mail.google.com",
+              "url": "https://www.zoho.com/mail/",
               "icon": "fa-solid fa-envelope",
-              "title": "Gmail"
+              "title": "Zoho Mail企业邮箱"
             },
             {
               "url": "https://outlook.live.com",
@@ -829,19 +1004,19 @@ document.addEventListener("DOMContentLoaded", function () {
               "title": "ProtonMail"
             },
             {
-              "url": "https://mail.qq.com",
+              "url": "https://tinkmail.me/",
               "icon": "fa-brands fa-qq",
-              "title": "QQ邮箱"
+              "title": "tinkmail企业邮箱"
             },
             {
-              "url": "https://librem.one/",
+              "url": "https://em.bjedu.tech/",
               "icon": "fa-solid fa-at",
-              "title": "librem邮箱"
+              "title": "Cloudflare临时邮件"
             },
             {
-              "url": "https://www.linshigmail.com/",
+              "url": "https://edumail.su/",
               "icon": "fa-solid fa-envelopes-bulk",
-              "title": "临时谷歌邮箱"
+              "title": "临时教育邮箱"
             }
           ]
         }

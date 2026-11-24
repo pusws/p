@@ -1,4 +1,4 @@
-const CACHE_NAME = 'webnav-hub-v1';
+const CACHE_NAME = 'webnav-hub-v2';
 const urlsToCache = [
   '/',
   '/style.css',

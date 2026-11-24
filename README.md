@@ -19,6 +19,7 @@ WebNav Hub 是一个现代化的网址导航网站，汇集了各种类型的网
 ├── main.js         # JavaScript 脚本文件
 ├── manifest.json   # PWA配置文件
 ├── sw.js           # Service Worker文件
+├── favicon.svg     # 浏览器标签页图标
 ├── data/
 │   └── navData.json # 导航数据文件（备份）
 ├── icons/          # PWA图标文件夹
@@ -53,6 +54,7 @@ WebNav Hub 是一个现代化的网址导航网站，汇集了各种类型的网
 - Font Awesome 图标库
 - PWA（渐进式Web应用）支持
 - SVG图标
+- [Modern Web Guidance](https://github.com/GoogleChrome/modern-web-guidance)（参考现代 Web 最佳实践）
 
 ## 🔧 技术改进
 
@@ -72,6 +74,36 @@ WebNav Hub 是一个现代化的网址导航网站，汇集了各种类型的网
    - 添加ARIA标签提高可访问性
    - 改善屏幕阅读器支持
    - 添加键盘导航支持
+
+## 🧭 现代 Web 最佳实践（Modern Web Guidance）
+
+本项目在开发中引入并遵循 [GoogleChrome/modern-web-guidance](https://github.com/GoogleChrome/modern-web-guidance) 提供的现代 Web 最佳实践，用其中的指南校准渲染性能、可访问性、资源加载与缓存策略，而不是凭经验临时决定写法。
+
+### 在本地使用
+
+```bash
+# 安装指南到当前项目（非交互式）
+DISABLE_TELEMETRY=1 npx modern-web-guidance@latest install --agent '*' -y
+
+# 按具体能力检索指南（查询用 2-5 个英文单词的动作用例）
+npx -y modern-web-guidance@latest search "content visibility long list"
+
+# 取回某条指南的完整内容
+npx -y modern-web-guidance@latest retrieve "performance"
+
+# 扫描全项目中的过时写法（仅覆盖约 20% 的指南子集）
+npx -y modern-web-guidance@latest legacy-scan . --json
+```
+
+### 本项目已应用的结论
+
+- **渲染性能**：首屏之后的分类网格使用 `content-visibility: auto` + `contain-intrinsic-size: auto`，长页面只布局视口附近内容；卡片用 `DocumentFragment` 与 `replaceChildren()` 一次性插入
+- **资源加载**：为阻塞渲染的图标 CDN 增加 `preconnect`，脚本使用 `defer`，Font Awesome 升级至 7.3.1
+- **缓存策略**：Service Worker 对导航请求使用 Network-First、对静态资源使用 Stale-While-Revalidate，替代原先的永久 Cache-First
+- **可访问性**：导航用 `aria-current` 标记当前分类，卡片仅保留一个可聚焦的真实链接，焦点样式改用 `:focus-visible`，并尊重 `prefers-reduced-motion`
+- **锚点定位**：分类标题使用 `scroll-margin-top`，跳转时不再被吸顶导航栏遮挡
+
+> 后续修改 HTML/CSS/客户端 JS 时，建议先用 `search` 检索对应指南再动手，并保持上述约定不回退。
 
 ## 📂 网站分类
 
@@ -106,7 +138,7 @@ WebNav Hub 是一个现代化的网址导航网站，汇集了各种类型的网
 <nav>
   <ul>
     <li><a href="#ai-search" class="active">Ai搜索</a></li>
-    <li><a href="#social">社交媒体</a></li>
+    <li><a href="#social">托管社交</a></li>
     <li><a href="#tools">实用工具</a></li>
     <li><a href="#tech-news">科技资讯</a></li>
     <li><a href="#cloud-storage">云存储</a></li>

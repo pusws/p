@@ -104,9 +104,9 @@ nav a.active {
     color: #000;
 }
 
-/* 键盘焦点样式 */
-nav a:focus,
-.link-card:focus {
+/* 键盘焦点样式（仅键盘触发，鼠标点击后不残留焦点环） */
+nav a:focus-visible,
+.link-card:has(a:focus-visible) {
     outline: 2px solid var(--primary-color);
     outline-offset: 2px;
 }
@@ -125,6 +125,8 @@ main {
     border-left: 4px solid var(--primary-color);
     padding-left: 0.6rem;
     text-transform: uppercase;
+    /* 锚点跳转时避开吸顶导航栏的遮挡 */
+    scroll-margin-top: 5rem;
 }
 
 .link-grid {
@@ -132,6 +134,12 @@ main {
     grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
     gap: 1rem;
     margin-bottom: 2rem;
+}
+
+/* 首屏之后的分类网格延迟布局与绘制；auto 关键字会记住真实高度，避免滚动条跳动 */
+.link-grid:not(:first-of-type) {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 900px;
 }
 
 /* 玻璃拟态卡片样式 */
@@ -167,7 +175,7 @@ main {
 }
 
 .link-card:hover,
-.link-card:focus {
+.link-card:has(a:focus-visible) {
     transform: translateY(-4px) scale(1.02);
     box-shadow: 0 8px 20px rgba(255, 144, 0, 0.3);
     background: rgba(40, 40, 40, 0.65);
@@ -183,7 +191,7 @@ main {
 }
 
 .link-card:hover i,
-.link-card:focus i {
+.link-card:has(a:focus-visible) i {
     transform: scale(1.1);
 }
 
@@ -227,6 +235,15 @@ footer nav a {
 }
 
 /* 移动端优化 */
+/* 尊重系统的“减少动态效果”设置 */
+@media (prefers-reduced-motion: reduce) {
+    nav a,
+    .link-card,
+    .link-card i {
+        transition: none;
+    }
+}
+
 @media (max-width: 768px) {
     html {
         font-size: 15px;

@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    var navLinks = document.querySelectorAll("nav a");
+    const navLinks = Array.from(document.querySelectorAll("nav a"));
 
     // 内联导航数据（避免本地文件访问限制）
     const navData = {
@@ -1023,52 +1023,54 @@ document.addEventListener("DOMContentLoaded", function () {
       ]
     };
 
-    // 处理导航数据并生成链接卡片
+    // 处理导航数据并生成链接卡片（用 DOM API 构建，避免解析 HTML 字符串）
     const mainContent = document.getElementById('main-content');
-    
-    navData.categories.forEach((category, index) => {
-        // 创建分类标题
-        const categoryTitle = document.createElement('h2');
-        categoryTitle.className = 'category-title';
-        categoryTitle.id = category.id;
-        categoryTitle.textContent = category.title;
-        categoryTitle.setAttribute('tabindex', '-1'); // 使标题可聚焦
-        
-        // 创建链接网格容器
-        const linkGrid = document.createElement('section');
-        linkGrid.className = 'link-grid';
-        linkGrid.setAttribute('role', 'region');
-        linkGrid.setAttribute('aria-labelledby', category.id);
-        
-        // 为每个链接创建卡片
-        category.links.forEach((link, linkIndex) => {
-            const linkCard = document.createElement('div');
-            linkCard.className = 'link-card';
-            linkCard.setAttribute('role', 'link');
-            linkCard.setAttribute('tabindex', '0');
-            linkCard.setAttribute('aria-label', link.title);
-            
-            // 添加键盘支持
-            linkCard.addEventListener('keydown', function(e) {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    window.open(link.url, '_blank');
-                }
+
+    if (mainContent) {
+        const fragment = document.createDocumentFragment();
+
+        navData.categories.forEach((category) => {
+            // 创建分类标题
+            const categoryTitle = document.createElement('h2');
+            categoryTitle.className = 'category-title';
+            categoryTitle.id = category.id;
+            categoryTitle.textContent = category.title;
+            categoryTitle.setAttribute('tabindex', '-1'); // 使标题可聚焦
+
+            // 创建链接网格容器
+            const linkGrid = document.createElement('section');
+            linkGrid.className = 'link-grid';
+            linkGrid.setAttribute('role', 'region');
+            linkGrid.setAttribute('aria-labelledby', category.id);
+
+            // 为每个链接创建卡片：整张卡片只有一个可聚焦链接，避免重复的 Tab 停留点
+            category.links.forEach((link) => {
+                const linkCard = document.createElement('div');
+                linkCard.className = 'link-card';
+
+                const anchor = document.createElement('a');
+                anchor.href = link.url;
+                anchor.target = '_blank';
+                anchor.rel = 'noopener';
+                anchor.setAttribute('aria-label', link.title);
+
+                const icon = document.createElement('i');
+                icon.className = link.icon;
+                icon.setAttribute('aria-hidden', 'true');
+
+                const title = document.createElement('h3');
+                title.textContent = link.title;
+
+                linkCard.append(anchor, icon, title);
+                linkGrid.append(linkCard);
             });
-            
-            linkCard.innerHTML = `
-                <a href="${link.url}" target="_blank" aria-label="${link.title}" rel="noopener"></a>
-                <i class="${link.icon}" aria-hidden="true"></i>
-                <h3>${link.title}</h3>
-            `;
-            
-            linkGrid.appendChild(linkCard);
+
+            // 将分类标题和链接网格用同一个片段一次性插入主内容区
+            fragment.append(categoryTitle, linkGrid);
         });
-        
-        // 将分类标题和链接网格添加到主内容区
-        mainContent.appendChild(categoryTitle);
-        mainContent.appendChild(linkGrid);
-    });
+
+        mainContent.replaceChildren(fragment);
+    }
     
     // 隐藏加载指示器
     const loadingIndicator = document.getElementById('loadingIndicator');
@@ -1080,43 +1082,66 @@ document.addEventListener("DOMContentLoaded", function () {
     initNavigation();
 
     function initNavigation() {
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+        function scrollToSection(targetElement) {
+            targetElement.scrollIntoView({
+                behavior: reduceMotion.matches ? "auto" : "smooth",
+                block: "start",
+            });
+        }
+
+        function setActiveLink(activeLink) {
+            navLinks.forEach(function (link) {
+                const isActive = link === activeLink;
+                link.classList.toggle("active", isActive);
+                if (isActive) {
+                    link.setAttribute("aria-current", "location");
+                } else {
+                    link.removeAttribute("aria-current");
+                }
+            });
+        }
+
+        function findNavLink(hash) {
+            return navLinks.find(function (link) {
+                return link.hash === hash;
+            });
+        }
+
         navLinks.forEach(function (link) {
             link.addEventListener("click", function (e) {
-                e.preventDefault();
-                navLinks.forEach((l) => l.classList.remove("active"));
-                this.classList.add("active");
-                var targetId = this.getAttribute("href").split("#")[1];
-                var targetElement = document.getElementById(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({ behavior: "smooth" });
+                const targetId = link.hash.slice(1);
+                const targetElement = targetId && document.getElementById(targetId);
+                if (!targetElement) return; // 交回浏览器默认行为
 
-                    var newUrl =
-                        window.location.protocol +
-                        "//" +
-                        window.location.host +
-                        window.location.pathname +
-                        "#" +
-                        targetId;
-                    window.history.pushState({ path: newUrl }, "", newUrl);
+                e.preventDefault();
+                setActiveLink(link);
+                scrollToSection(targetElement);
+
+                if (window.location.hash !== link.hash) {
+                    window.history.pushState(null, "", link.hash);
                 }
             });
         });
 
         function handleHashChange() {
-            var hash = window.location.hash;
-            if (hash) {
-                var targetElement = document.getElementById(hash.substring(1));
-                if (targetElement) {
-                    targetElement.scrollIntoView({ behavior: "smooth" });
-                    var activeLink = document.querySelector(
-                        'nav a[href="' + hash + '"]'
-                    );
-                    if (activeLink) {
-                        navLinks.forEach((l) => l.classList.remove("active"));
-                        activeLink.classList.add("active");
-                    }
-                }
+            const hash = window.location.hash;
+            if (!hash) return;
+
+            let targetId = "";
+            try {
+                targetId = decodeURIComponent(hash.slice(1));
+            } catch (error) {
+                targetId = "";
             }
+
+            const targetElement = targetId && document.getElementById(targetId);
+            if (!targetElement) return;
+
+            const activeLink = findNavLink(hash);
+            if (activeLink) setActiveLink(activeLink);
+            scrollToSection(targetElement);
         }
 
         window.addEventListener("hashchange", handleHashChange);
@@ -1126,12 +1151,10 @@ document.addEventListener("DOMContentLoaded", function () {
     // 注册服务工作者
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', function() {
-            navigator.serviceWorker.register('/sw.js')
-                .then(function(registration) {
-                    console.log('SW registered: ', registration);
-                })
-                .catch(function(registrationError) {
-                    console.log('SW registration failed: ', registrationError);
+            // 使用相对路径注册，便于部署在子目录下
+            navigator.serviceWorker.register('sw.js')
+                .catch(function(error) {
+                    console.warn('Service worker registration failed:', error);
                 });
         });
     }

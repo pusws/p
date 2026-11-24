@@ -13,6 +13,9 @@
     <link rel="manifest" href="manifest.json">
     <link rel="apple-touch-icon" href="icons/icon.svg">
     
+    <!-- 提前与图标 CDN 建立连接，缩短阻塞渲染的图标样式的等待时间 -->
+    <link rel="preconnect" href="https://cdnfortawesome.cdns.ndjp.net">
+    
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnfortawesome.cdns.ndjp.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css" />
 </head>
@@ -26,9 +29,9 @@
     <header>
         <h1>WebNav Hub</h1>
     </header>
-    <nav>
+    <nav aria-label="分类导航">
         <ul>
-            <li><a href="#ai-search" class="active">Ai搜索</a></li>
+            <li><a href="#ai-search" class="active" aria-current="location">Ai搜索</a></li>
             <li><a href="#social">托管社交</a></li>
             <li><a href="#tools">实用工具</a></li>
             <li><a href="#tech-news">科技资讯</a></li>
@@ -42,7 +45,7 @@
     <footer>
         <p>© 2025 WebNav Hub. 保留所有权利。</p>
     </footer>
-    <script src="main.js"></script>
+    <script src="main.js" defer></script>
 </body>
 
 </html>

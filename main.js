@@ -1072,6 +1072,12 @@ document.addEventListener("DOMContentLoaded", function () {
         mainContent.replaceChildren(fragment);
     }
     
+    // 页脚版权年份动态更新为当前年份
+    const copyrightYear = document.getElementById('copyright-year');
+    if (copyrightYear) {
+        copyrightYear.textContent = String(new Date().getFullYear());
+    }
+
     // 隐藏加载指示器
     const loadingIndicator = document.getElementById('loadingIndicator');
     if (loadingIndicator) {
